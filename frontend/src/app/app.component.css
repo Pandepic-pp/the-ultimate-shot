@@ -1,0 +1,20 @@
+* {
+    display: flex;
+    margin: 0.5em;
+}
+
+nav {
+    background: linear-gradient(to right, #AB3939 30%, #B71E3D 50%);
+    margin: 1em;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

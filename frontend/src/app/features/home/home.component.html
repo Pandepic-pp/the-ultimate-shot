@@ -1,0 +1,159 @@
+<body>
+  <section class="hero-section" style="margin: 3em 2em">
+    <div class="hero-content">
+      <p style="font-size: 3.5em">
+        Empowering millions of cricket enthusiasts across India.
+      </p>
+      <p style="font-size: 2.5em">Train. Play. Progress.</p>
+      <p style="font-size: 1.5em">
+        Begin your cricket journey today — just ₹199.
+      </p>
+      <button class="start-session-button" aria-label="Start Session">
+        Start Session
+      </button>
+    </div>
+    <img
+      src="../../../assets/images/hero-image.jpg"
+      alt="Young cricketers training on the field"
+      width="38%"
+      style="border-radius: 0 10px 10px 0"
+    />
+  </section>
+
+  <section class="photos">
+    <p style="align-self: center">On the field.</p>
+    <div class="images">
+      <img
+        src="../../../assets/images/banner-image-1.webp"
+        alt=""
+        width="20%"
+      />
+      <img
+        src="../../../assets/images/banner-image-2.webp"
+        alt=""
+        width="20%"
+      />
+      <img
+        src="../../../assets/images/banner-image-3.webp"
+        alt=""
+        width="20%"
+      />
+      <img
+        src="../../../assets/images/banner-image-4.webp"
+        alt=""
+        width="20%"
+      />
+    </div>
+  </section>
+
+  <section class="info">
+    <h2>Level Up Your Game, Ground & Growth.</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Master the Game from Day One</h3>
+        <p>
+          Join structured coaching programs designed for all skill levels. Build
+          your confidence, technique, and match-readiness with expert guidance
+          from the very start.
+        </p>
+        <a href="tel:9027451440">📞 Book Your First Session</a>
+      </div>
+
+      <div class="card">
+        <h3>Upgrade Your Cricket Facility</h3>
+        <p>
+          Digitize your infrastructure, boost visibility, and increase bookings.
+          Partner with us to deliver seamless cricketing experiences through
+          powerful tech and smart operations.
+        </p>
+        <a href="tel:9027451440">📞 Raise an Enquiry</a>
+      </div>
+
+      <div class="card">
+        <h3>Corporate Cricket, Redefined</h3>
+        <p>
+          Host engaging leagues, team-building matches, or regular training
+          sessions — all powered by certified coaches and performance analysts
+          tailored for corporate teams.
+        </p>
+        <a href="tel:9027451440">📞 Raise an Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <h2>The Movement We’re Fueling</h2>
+    <h3>Thousands of players. Countless sessions. Tangible impact.</h3>
+
+    <div class="stat-cards">
+      <div class="stat-card">
+        <h2>10,000+</h2>
+        <p>Players Training & Competing</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>15,000+</h2>
+        <p>Sessions Successfully Delivered</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>15+</h2>
+        <p>Official Matches Conducted</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>18+</h2>
+        <p>Corporates Engaged in Cricket</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>50+</h2>
+        <p>Corporate Teams Onboarded</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>6+</h2>
+        <p>Certified Coaches Driving Growth</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="orgs">
+      <h2>Upgrade your office cricket to pro level</h2>
+      <div class="org-logos">
+        <div class="carousel-container" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+          <div class="carousel-slide">
+            <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
+            <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
+            <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
+          </div>
+          <div class="carousel-slide">
+            <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
+            <img src="../../../assets/images/logo-5.webp" alt="Logo 5" />
+            <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
+          </div>
+          <div class="carousel-slide">
+            <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
+            <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
+            <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
+          </div>
+          <div class="carousel-slide">
+            <img src="../../../assets/images/logo-2.webp" alt="Logo 5" />
+            <img src="../../../assets/images/logo-3.webp" alt="Logo 1" />
+            <img src="../../../assets/images/logo-4.webp" alt="Logo 2" />
+          </div>
+          <div class="carousel-slide">
+            <img src="../../../assets/images/logo-2.webp" alt="Logo 3" />
+            <img src="../../../assets/images/logo-3.webp" alt="Logo 4" />
+            <img src="../../../assets/images/logo-4.webp" alt="Logo 5" />
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <div *ngFor="let slide of slides; let i = index" 
+               class="carousel-dot" 
+               [class.active]="i === currentSlide"
+               (click)="goToSlide(i)"></div>
+        </div>
+      </div>
+    </section>
+</body>
