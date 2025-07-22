@@ -119,41 +119,123 @@
   </section>
 
   <section class="orgs">
-      <h2>Upgrade your office cricket to pro level</h2>
-      <div class="org-logos">
-        <div class="carousel-container" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
-          <div class="carousel-slide">
-            <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
-            <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
-            <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
-          </div>
-          <div class="carousel-slide">
-            <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
-            <img src="../../../assets/images/logo-5.webp" alt="Logo 5" />
-            <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
-          </div>
-          <div class="carousel-slide">
-            <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
-            <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
-            <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
-          </div>
-          <div class="carousel-slide">
-            <img src="../../../assets/images/logo-2.webp" alt="Logo 5" />
-            <img src="../../../assets/images/logo-3.webp" alt="Logo 1" />
-            <img src="../../../assets/images/logo-4.webp" alt="Logo 2" />
-          </div>
-          <div class="carousel-slide">
-            <img src="../../../assets/images/logo-2.webp" alt="Logo 3" />
-            <img src="../../../assets/images/logo-3.webp" alt="Logo 4" />
-            <img src="../../../assets/images/logo-4.webp" alt="Logo 5" />
-          </div>
+    <h2>Upgrade your office cricket to pro level</h2>
+    <div class="org-logos">
+      <div
+        class="carousel-container"
+        [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+      >
+        <div class="carousel-slide">
+          <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
+          <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
+          <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
         </div>
-        <div class="carousel-nav">
-          <div *ngFor="let slide of slides; let i = index" 
-               class="carousel-dot" 
-               [class.active]="i === currentSlide"
-               (click)="goToSlide(i)"></div>
+        <div class="carousel-slide">
+          <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
+          <img src="../../../assets/images/logo-5.webp" alt="Logo 5" />
+          <img src="../../../assets/images/logo-1.webp" alt="Logo 1" />
+        </div>
+        <div class="carousel-slide">
+          <img src="../../../assets/images/logo-2.webp" alt="Logo 2" />
+          <img src="../../../assets/images/logo-3.webp" alt="Logo 3" />
+          <img src="../../../assets/images/logo-4.webp" alt="Logo 4" />
+        </div>
+        <div class="carousel-slide">
+          <img src="../../../assets/images/logo-2.webp" alt="Logo 5" />
+          <img src="../../../assets/images/logo-3.webp" alt="Logo 1" />
+          <img src="../../../assets/images/logo-4.webp" alt="Logo 2" />
+        </div>
+        <div class="carousel-slide">
+          <img src="../../../assets/images/logo-2.webp" alt="Logo 3" />
+          <img src="../../../assets/images/logo-3.webp" alt="Logo 4" />
+          <img src="../../../assets/images/logo-4.webp" alt="Logo 5" />
         </div>
       </div>
-    </section>
+      <div class="carousel-nav">
+        <div
+          *ngFor="let slide of slides; let i = index"
+          class="carousel-dot"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners">
+    <h2>Got Nets? We’ll Handle the Rest.</h2>
+    <h3>
+      TUS partners with indoor nets, school turfs, and cricket arenas to deliver
+      seamless, high-retention training programs—end-to-end.
+    </h3>
+
+    <div class="management">
+      <div class="management-box">
+        <p>
+          <strong>We manage operations</strong><br />Daily scheduling,
+          communication & smooth execution.
+        </p>
+      </div>
+      <div class="management-box">
+        <p>
+          <strong>We hire & train coaches</strong><br />Qualified, trained, and
+          SOP-aligned staff provided.
+        </p>
+      </div>
+      <div class="management-box">
+        <p>
+          <strong>We bring in players</strong><br />Marketing, outreach, and
+          onboarding handled.
+        </p>
+      </div>
+      <div class="management-box">
+        <p>
+          <strong>We provide add-ons</strong><br />Equipment, physio support,
+          and nutrition plans.
+        </p>
+      </div>
+      <div class="management-box">
+        <p>
+          <strong>You get exclusivity</strong><br />Guaranteed no competing TUS
+          programs nearby.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="founders">
+    <h2>Meet the Founders</h2>
+    <h3>
+      A team of sports lovers, product thinkers, and on-ground executors—driven
+      by the belief that serious cricket should be accessible to all.
+    </h3>
+
+    <div class="founder-cards">
+      <div class="founder-card">
+        <img src="../../../assets/images/founder-1.webp" alt="Rohit Gupta" />
+        <h4>Rohit Gupta</h4>
+        <p>IIT BHU, IIM Rohtak</p>
+        <p><strong>Founder, Head of Business</strong></p>
+      </div>
+      <div class="founder-card">
+        <img src="../../../assets/images/founder-2.webp" alt="Abhash Kumar" />
+        <h4>Abhash Kumar</h4>
+        <p>IIT BHU, IIM Bangalore</p>
+        <p><strong>Founder, Head of Expansion</strong></p>
+      </div>
+      <div class="founder-card">
+        <img src="../../../assets/images/founder-3.webp" alt="Deep Das" />
+        <h4>Deep Das</h4>
+        <p>IIT BHU</p>
+        <p><strong>Founder, Head of Strategy</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h3>Google Reviews</h3>
+    <div class="review-us">
+        The Ultimate Shot
+    </div>
+  </section>
 </body>
