@@ -7,6 +7,7 @@ require('dotenv').config();
 const { generateOTP, sendOTP } = require('./otpUtils');
 const Otp = require('./models/otp');
 const User = require('./models/user');
+const Booking = require('./models/booking');
 
 const app = express();
 app.use(cors());
@@ -109,6 +110,39 @@ app.post('/login-verify', async (req, res) => {
   await Otp.deleteMany({ email }); // optional: invalidate OTP after use
 
   res.status(200).send('OTP verified successfully!');
+});
+
+// get all bookings
+app.get('/booking', async (req, res) => {
+    try {
+        const bookings = await Booking.find();
+        res.json(bookings);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// POST a new booking
+app.post('/booking', async (req, res) => {
+    const booking = new Booking({
+        place: req.body.place,
+        slot: req.body.slot,
+        overs: req.body.overs,
+        phone: req.body.phone,
+        email: req.body.email,
+        fullName: req.body.fullName
+    });
+
+    try {
+        const newBooking = await booking.save();
+        res.status(201).json(newBooking);
+    } catch (err) {
+        if (err.code === 11000) {
+            res.status(409).json({ message: "Phone or Email already booked." });
+        } else {
+            res.status(400).json({ message: err.message });
+        }
+    }
 });
 
 const PORT = process.env.PORT || 3000;
