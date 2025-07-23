@@ -113,14 +113,36 @@ app.post('/login-verify', async (req, res) => {
 });
 
 // get all bookings
-app.get('/booking', async (req, res) => {
+app.post('/my-booking', async (req, res) => {
     try {
-        const bookings = await Booking.find();
-        res.json(bookings);
+        const { email, phone } = req.body;
+
+        if (!email || !phone) {
+            return res.status(400).json({ message: "Email and phone are required" });
+        }
+
+        const booking = await Booking.find({ email, phone });
+
+        if (!booking) {
+            return res.status(404).json({ message: "No booking found for provided email and phone" });
+        }
+
+        res.json(booking);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
+
+app.get('/get-all-bookings', async (req, res) => {
+    try {
+        const publicBookings = await Booking.find({}, 'place slot overs');
+        res.json(publicBookings);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
 
 // POST a new booking
 app.post('/booking', async (req, res) => {
