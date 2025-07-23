@@ -1,0 +1,52 @@
+.my-home-container {
+  padding: 3em 2em;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.my-home-title {
+  font-size: 2.2em;
+  margin-bottom: 2em;
+  color: white;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 2em 1.5em;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  border-top: 8px solid #b71e3d;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1em;
+}
+
+.feature-card h2 {
+  color: #222;
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 0.95em;
+}

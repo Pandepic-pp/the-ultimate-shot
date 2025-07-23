@@ -1,1 +1,33 @@
+<h2 class="form-heading">Registration Form</h2>
 
+<form *ngIf="!otpStep" [formGroup]="registerForm" (ngSubmit)="onRegisterInit()">
+  <div>
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName" placeholder="Enter your full name" />
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="example@mail.com" />
+  </div>
+
+  <div>
+    <label>Phone</label>
+    <input type="tel" formControlName="phone" maxlength="10" placeholder="10-digit phone number" />
+  </div>
+
+  <div *ngIf="errorMsg" class="error">
+    {{ errorMsg }}
+    <span class="login-link" (click)="goToLogin()">Login?</span>
+  </div>
+
+  <br />
+  <button type="submit" [disabled]="registerForm.invalid">Send OTP</button>
+</form>
+
+<!-- OTP Step -->
+<form *ngIf="otpStep" [formGroup]="otpForm" (ngSubmit)="onRegisterVerify()">
+  <label>Enter OTP</label>
+  <input type="text" formControlName="otp" placeholder="6-digit OTP" />
+  <button type="submit" [disabled]="otpForm.invalid">Verify & Register</button>
+</form>

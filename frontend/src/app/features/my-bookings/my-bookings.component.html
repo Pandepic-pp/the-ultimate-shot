@@ -1,0 +1,27 @@
+<div class="my-bookings-container">
+  <h1>My Bookings</h1>
+
+  <div *ngIf="loading">Loading bookings...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Overs</th>
+        <th>Slot</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of bookings">
+        <td>{{ b.place }}</td>
+        <td>{{ b.overs }}</td>
+        <td>{{ b.slot }}</td>
+        <td>
+          ₹{{ b.cost }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

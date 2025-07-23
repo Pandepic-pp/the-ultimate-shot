@@ -1,0 +1,43 @@
+.my-bookings-container {
+  padding: 2em;
+  max-width: 900px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-top: 8px solid #b71e3d;
+  margin-top: 3em;
+}
+
+.my-bookings-container h1 {
+  text-align: center;
+  color: #b71e3d;
+  margin-bottom: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #b71e3d;
+  color: white;
+}
+
+th, td {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.error {
+  color: #b71e3d;
+  text-align: center;
+  margin-top: 1em;
+  font-weight: 500;
+}

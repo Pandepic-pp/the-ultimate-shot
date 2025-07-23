@@ -1,12 +1,26 @@
-<nav style="margin: 2em 3em 0em;">
-    <div class="home-page">
-        <img routerLink="/home" src="https://theultimateshot.in/wp-content/uploads/2024/12/logo2new.webp" width="20%" alt="logo">
-    </div>
-    <ul>
-        <li><a routerLink="/plans">Plans</a></li>
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
-    </ul>
+<nav style="margin: 2em 3em 0em">
+  <div class="home-page">
+    <img
+      src="https://theultimateshot.in/wp-content/uploads/2024/12/logo2new.webp"
+      width="20%"
+      alt="logo"
+      (click)="goToHome()"
+      style="cursor: pointer"
+    />
+  </div>
+
+  <ul>
+    <li><a routerLink="/plans">Plans</a></li>
+
+    <ng-container *ngIf="!isLoggedIn">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn">
+      <li><a (click)="logout()" style="cursor: pointer">Logout</a></li>
+    </ng-container>
+  </ul>
 </nav>
 
 <router-outlet></router-outlet>

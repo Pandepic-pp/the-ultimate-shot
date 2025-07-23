@@ -1,0 +1,60 @@
+.plans-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3em;
+  padding: 2em;
+}
+
+.plan-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 2em;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+  border-top: 8px solid #b71e3d;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.plan-card h1 {
+  text-align: center;
+  margin-bottom: 1.2em;
+  color: #b71e3d;
+  font-size: 1.8em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #b71e3d;
+  color: #fff;
+}
+
+th, td {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #fbeaec;
+}
+
+tbody {
+    color: black;
+}
+
+@media (max-width: 768px) {
+  .plans-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

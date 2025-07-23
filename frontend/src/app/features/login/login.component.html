@@ -1,1 +1,34 @@
-<p>login works!</p>
+<h2 class="form-heading">Login</h2>
+
+<!-- Email Form -->
+<form *ngIf="!otpStep" [formGroup]="emailForm" (ngSubmit)="onLoginInit()">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" placeholder="example@mail.com" />
+    <small *ngIf="emailForm.get('email')?.touched && emailForm.get('email')?.invalid">
+      <span *ngIf="emailForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="emailForm.get('email')?.errors?.['email']">Invalid email format.</span>
+    </small>
+  </div>
+
+  <div *ngIf="errorMsg" class="error">
+    {{ errorMsg }}
+    <span class="login-link" (click)="goToRegister()">Register?</span>
+  </div>
+
+  <button type="submit" [disabled]="emailForm.invalid">Send OTP</button>
+</form>
+
+<!-- OTP Form -->
+<form *ngIf="otpStep" [formGroup]="otpForm" (ngSubmit)="onLoginVerify()">
+  <div>
+    <label for="otp">Enter OTP</label>
+    <input type="text" id="otp" formControlName="otp" placeholder="6-digit OTP" />
+    <small *ngIf="otpForm.get('otp')?.touched && otpForm.get('otp')?.invalid">
+      <span *ngIf="otpForm.get('otp')?.errors?.['required']">OTP is required.</span>
+      <span *ngIf="otpForm.get('otp')?.errors?.['pattern']">Enter a valid 6-digit OTP.</span>
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="otpForm.invalid">Verify & Login</button>
+</form>
