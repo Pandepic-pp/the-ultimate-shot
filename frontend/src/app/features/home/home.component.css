@@ -393,3 +393,239 @@ p {
   color: #555;
   font-size: 0.95em;
 }
+
+.testimonials-section {
+  background-color: #b71e3d;
+  padding: 3em 2em;
+  margin: 3em 2em;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.testimonials-section h2 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+.testimonials-section h3 {
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2em;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.testimonial-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2em 1.5em;
+  color: #333;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  border: 3px solid #4caf50;
+}
+
+.testimonial-card h4 {
+  font-size: 1.1em;
+  margin: 0.3em 0 0.1em;
+}
+
+.testimonial-card .designation {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  font-size: 0.95em;
+  margin-top: 1em;
+}
+
+.see-more-container {
+  text-align: right;
+  margin-top: 1.5em;
+}
+
+.see-more-btn {
+  background-color: #ffffff;
+  color: #b71e3d;
+  border: none;
+  padding: 0.7em 1.5em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.see-more-btn:hover {
+  background-color: #ffe9ed;
+}
+
+.main-footer {
+  background-color: #b71e3d;
+  color: #ffffff;
+  padding: 3em 2em;
+  margin: 3em 2em;
+  border-radius: 10px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5em;
+  max-width: 1200px;
+  margin: 0 auto 3em;
+}
+
+.footer-block h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 1.2em;
+  position: relative;
+  padding-bottom: 0.5em;
+}
+
+.footer-block h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+.footer-block h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+  color: #f4ebeb;
+}
+
+.footer-block p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0.5em 0;
+  color: #f4ebeb;
+}
+
+.footer-block .icon {
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.footer-block a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-block a:hover {
+  color: #ffd3d3;
+  transform: translateX(5px);
+  display: inline-block;
+}
+
+.footer-block button {
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  border: none;
+  background-color: #ffffff;
+  color: #b71e3d;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer-block button:hover {
+  background-color: #ffd3d3;
+  transform: translateY(-2px);
+}
+
+.footer-block button:active {
+  transform: translateY(0);
+}
+
+.footer-disclaimer {
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #f4ebeb;
+}
+
+.footer-disclaimer .icon {
+  font-size: 1.3em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
+.footer-disclaimer .copyright {
+  margin-top: 1.5em;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 3em 1.5em;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .footer-block h2 {
+    font-size: 1.4em;
+  }
+
+  .footer-block h3 {
+    font-size: 1.1em;
+  }
+
+  .footer-block button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+.address {
+  display: flex;
+  gap: 10px;
+}
