@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -6,14 +7,29 @@ require('dotenv').config();
 const { generateOTP, sendOTP } = require('./otpUtils');
 const Otp = require('./models/otp');
 const User = require('./models/user');
+const Booking = require('./models/booking');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connect
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.log('❌ Mongo error:', err));
+(async () => {
+  const mongoURI = process.env.MONGODB_URI;
+
+  if (!mongoURI) {
+    console.error('MongoDB URI is not defined in the .env file');
+    process.exit(1); // Exit the process with failure
+  }
+
+  try {
+    await mongoose.connect(mongoURI);
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection failed', err);
+    process.exit(1); // Exit the process if MongoDB connection fails
+  }
+})();
 
 
 // register route
@@ -94,6 +110,61 @@ app.post('/login-verify', async (req, res) => {
   await Otp.deleteMany({ email }); // optional: invalidate OTP after use
 
   res.status(200).send('OTP verified successfully!');
+});
+
+// get all bookings
+app.post('/my-booking', async (req, res) => {
+    try {
+        const { email, phone } = req.body;
+
+        if (!email || !phone) {
+            return res.status(400).json({ message: "Email and phone are required" });
+        }
+
+        const booking = await Booking.find({ email, phone });
+
+        if (!booking) {
+            return res.status(404).json({ message: "No booking found for provided email and phone" });
+        }
+
+        res.json(booking);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.get('/get-all-bookings', async (req, res) => {
+    try {
+        const publicBookings = await Booking.find({}, 'place slot overs');
+        res.json(publicBookings);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
+
+// POST a new booking
+app.post('/booking', async (req, res) => {
+    const booking = new Booking({
+        place: req.body.place,
+        slot: req.body.slot,
+        overs: req.body.overs,
+        phone: req.body.phone,
+        email: req.body.email,
+        fullName: req.body.fullName
+    });
+
+    try {
+        const newBooking = await booking.save();
+        res.status(201).json(newBooking);
+    } catch (err) {
+        if (err.code === 11000) {
+            res.status(409).json({ message: "Phone or Email already booked." });
+        } else {
+            res.status(400).json({ message: err.message });
+        }
+    }
 });
 
 const PORT = process.env.PORT || 3000;
