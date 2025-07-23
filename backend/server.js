@@ -112,6 +112,16 @@ app.post('/login-verify', async (req, res) => {
   res.status(200).send('OTP verified successfully!');
 });
 
+app.post('/get-user', async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return res.status(404).send('User not found');
+  }
+  res.status(200).json(user);
+});
+
 // get all bookings
 app.post('/my-booking', async (req, res) => {
     try {
