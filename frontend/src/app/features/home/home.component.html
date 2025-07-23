@@ -232,10 +232,114 @@
     </div>
   </section>
 
-  <section class="reviews">
-    <h3>Google Reviews</h3>
-    <div class="review-us">
-        The Ultimate Shot
+  <section class="testimonials-section">
+    <h2>What Our Players & Partners Say</h2>
+    <h3>Real feedback from those who train, play, and collaborate with us.</h3>
+
+    <div class="testimonial">
+      <div class="testimonial-cards">
+        <div
+          class="testimonial-card"
+          *ngFor="let review of testimonials; let i = index"
+        >
+          <img [src]="review.image" alt="Reviewer photo" />
+          <h4>Random User {{ i + 1 }}</h4>
+          <p class="designation">{{ review.stars }}</p>
+          <p class="quote">“{{ review.comment }}”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more-container">
+      <button class="see-more-btn" (click)="showAllTestimonials()">
+        See more
+      </button>
     </div>
   </section>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <!-- Location Section -->
+      <div class="footer-block">
+        <h2>Our Locations</h2>
+        <div class="address">
+          <div>
+            <h3>The Ultimate Shot – Sector 48</h3>
+            <p>
+              Ground Floor, Plot No. 2, Gali No. 1,<br />
+              Near Polaris Hospital, Tikri, Sector - 48,<br />
+              Sohna Road, Gurugram - 122018
+            </p>
+          </div>
+          <div>
+            <button
+              (click)="
+                openMap('https://maps.app.goo.gl/6L5gQ8akV1dwJiEy8')
+              "
+            >
+              Get Directions
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="address">
+          <div>
+            <h3>The Ultimate Shot – Sector 28</h3>
+            <p>
+              Plot No. 212, Hamilton Ct Rd,<br />
+              Sector 28, Chakkarpur, Gurugram, Haryana - 122009
+            </p>
+          </div>
+          <div>
+            <button
+              (click)="
+                openMap('https://maps.app.goo.gl/JS9bfkr7RV3XRJ5EA')
+              "
+            >
+              Get Directions
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footer-block">
+        <h2>Contact Us</h2>
+        <p>
+          <span class="icon"><img src="../../../assets/images/phone.png" width="7%" alt=""></span>
+          <a href="tel:+919027451440">+91-9027451440</a>
+        </p>
+        <p>
+          <span class="icon"><img src="../../../assets/images/mail.png" width="7%" alt=""></span>
+          <a href="mailto:pratyaksh22official@gmail.com"
+            >pratyaksh22official@gmail.com</a
+          >
+        </p>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="footer-block">
+        <h2>Follow Us</h2>
+        <p>
+          <span class="icon"><img src="../../../assets/images/insta.png" width="7%" alt=""></span>
+          <a href="https://instagram.com" target="_blank" rel="noopener"
+            >Instagram</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Disclaimer Section -->
+    <div class="footer-disclaimer">
+      <p style="font-size: large">
+        <span class="icon">⚠️</span>
+        <strong>Safety First at The Ultimate Shot:</strong> All players must
+        wear proper protective gear (helmet, pads, gloves, abdominal guard)
+        before entering the net. Bowling machine speed must match your skill
+        level. Non-compliance may result in denied entry. Injuries from ignoring
+        safety rules are not the responsibility of The Ultimate Shot.
+      </p>
+      <p class="copyright">© 2025 The Ultimate Shot. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
