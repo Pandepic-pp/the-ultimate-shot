@@ -21,6 +21,7 @@ export class MyBookingsComponent {
       this.api.getMyBookings({ email, phone }).subscribe({
         next: (data) => {
           this.bookings = data;
+          console.log(this.bookings);
           this.loading = false;
         },
         error: (err) => {

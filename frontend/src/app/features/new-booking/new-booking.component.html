@@ -1,1 +1,43 @@
-<p>new-booking works!</p>
+
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="title"><h2>Book your slot</h2></div>
+  <label for="places">Place</label>
+  <select id="places" formControlName="place">
+    <option value="sector 28 gurgaon">Sector 28, Gurgaon</option>
+    <option value="sector 48 gurgaon">Sector 48, Gurgaon</option>
+  </select>
+
+  <label for="overs">Overs</label>
+  <select id="overs" formControlName="overs">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+  </select>
+
+  <div class="date-tabs">
+    <label>Date</label>
+    <div>
+      <nav *ngFor="let date of dateTabs"
+              [class.active]="selectedDate === date"
+              (click)="onDateSelect(date)">
+        {{ date }}
+      </nav>
+    </div>
+  </div>
+
+  <label>Slot</label>
+  <div id="slot">
+    <ul>
+      <li *ngFor="let s of slots"
+          [class.selected]="s === selectedSlot"
+          (click)="onSlotSelect(s)">
+        {{ s }}
+      </li>
+    </ul>
+  </div>
+
+  <h3>Total Price: ₹{{ totalPrice }}</h3>
+
+  <button type="submit">Book Now</button>
+</form>
