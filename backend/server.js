@@ -162,7 +162,8 @@ app.post('/booking', async (req, res) => {
         overs: req.body.overs,
         phone: req.body.phone,
         email: req.body.email,
-        fullName: req.body.fullName
+        fullName: req.body.fullName,
+        cost: req.body.cost
     });
 
     try {
