@@ -163,7 +163,8 @@ app.post('/booking', async (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
         fullName: req.body.fullName,
-        cost: req.body.cost
+        cost: req.body.cost,
+        date: req.body.date
     });
 
     try {
