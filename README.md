@@ -26,12 +26,17 @@ A self-serve slot booking platform built as a **tech-enabled initiative** to str
 
 ---
 
-## 🧠 Motivation
+## 📸 Images & Screenshots
 
-While browsing *The Ultimate Shot*'s existing landing page, I noticed a gap — no way to register or book slots online.  
-As a cricket enthusiast and developer, I wanted to **build a prototype** that could improve both **user convenience** and **operational efficiency**.
+<img width="1886" height="910" alt="Screenshot 2025-07-25 212959" src="https://github.com/user-attachments/assets/d070b434-a647-4f5f-af77-e97002c9b6e1" />
 
-This prototype is a **proof of concept** to spark conversation with the founders and the community — showing what a tech-first approach could enable.
+<img width="1882" height="906" alt="Screenshot 2025-07-25 213012" src="https://github.com/user-attachments/assets/10fad41c-9735-433a-a7d4-ae5e8f8f31c2" />
+
+<img width="1886" height="909" alt="Screenshot 2025-07-25 213027" src="https://github.com/user-attachments/assets/a81646c0-d600-41c9-88af-9496aa216c6d" />
+
+<img width="1881" height="911" alt="Screenshot 2025-07-25 213217" src="https://github.com/user-attachments/assets/382a21da-f889-42d6-88e4-e6129bbeedc8" />
+
+<img width="1895" height="902" alt="Screenshot 2025-07-25 213241" src="https://github.com/user-attachments/assets/7104c046-a4bb-4207-9060-c522dd656eba" />
 
 ---
 
