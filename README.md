@@ -63,7 +63,7 @@ A self-serve slot booking platform built as a **tech-enabled initiative** to str
 
 **Pratyaksh Pandey**  
 Full-Stack Developer | Product Builder | Cricket Lover  
-📧 pratyakshp12.pp29@gmail.com  
+📧 pratyaksh22official@gmail.com  
 🔗 [LinkedIn](https://linkedin.com/in/pratyakshpandey)
 
 ---
