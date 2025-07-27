@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,8 @@ export class HomeComponent {
   currentSlide: number = 0;
   slides: number[] = [0, 1, 2, 3, 4];
   private intervalId: any;
+
+  constructor(private router: Router) {}
 
   testimonials = [
     {
@@ -92,5 +95,14 @@ export class HomeComponent {
 
   openMap(url: string): void {
     window.open(url, '_blank');
+  }
+
+  startSession(): void {
+    if(localStorage.getItem('fullName') !== null) {
+      this.router.navigate(['/my-home']);
+    }
+    else {
+      this.router.navigate(['/login']);
+    }
   }
 }
