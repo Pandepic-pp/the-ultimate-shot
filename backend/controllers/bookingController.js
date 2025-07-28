@@ -1,4 +1,5 @@
 const Booking = require('../models/booking');
+const SlotAvailability = require('../models/slotAvailability');
 const mongoose = require('mongoose');
 
 exports.createBooking = async (req, res) => {
