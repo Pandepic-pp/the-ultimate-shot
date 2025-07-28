@@ -8,7 +8,10 @@ const bookingSchema = new mongoose.Schema({
     email: { type: String, required: true},
     fullName: { type: String, required: true },
     cost: {type: Number, required: true},
-    date: {type: String, required: true}
+    date: {type: String, required: true},
+    status: {type: String, default: 'confirmed'}, // pending, confirmed, cancelled
 });
+
+bookingSchema.index({ place: 1, slot: 1, date: 1 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

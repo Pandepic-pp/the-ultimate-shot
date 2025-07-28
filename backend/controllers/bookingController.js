@@ -1,17 +1,34 @@
 const Booking = require('../models/booking');
+const mongoose = require('mongoose');
 
 exports.createBooking = async (req, res) => {
-  const booking = new Booking(req.body);
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
   try {
-    const newBooking = await booking.save();
-    res.status(201).json(newBooking);
-  } catch (err) {
-    if (err.code === 11000) {
-      res.status(409).json({ message: "Phone or Email already booked." });
-    } else {
-      res.status(400).json({ message: err.message });
+    const { place, slot, date, email, phone, fullName, cost, overs, status } = req.body;
+
+    const existingBookings = await Booking.countDocuments({ place, slot, date }).session(session);
+
+    if (existingBookings >= 2) {
+      await session.abortTransaction();
+      session.endSession();
+      return res.status(409).json({ message: 'This slot is fully booked. Please choose another time.' });
     }
+
+    const booking = new Booking({ place, slot, date, email, phone, fullName, cost, overs, status });
+    const savedBooking = await booking.save({ session });
+
+    await session.commitTransaction();
+    session.endSession();
+
+    res.status(201).json(savedBooking);
+  } catch (err) {
+    // If any error, rollback
+    await session.abortTransaction();
+    session.endSession();
+    console.error(err);
+    res.status(500).json({ message: 'Booking failed. Please try again.' });
   }
 };
 
