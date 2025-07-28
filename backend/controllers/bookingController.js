@@ -8,12 +8,24 @@ exports.createBooking = async (req, res) => {
   try {
     const { place, slot, date, email, phone, fullName, cost, overs, status } = req.body;
 
-    const existingBookings = await Booking.countDocuments({ place, slot, date }).session(session);
+    const slotKey = { place, slot, date };
+    const updatedSlot = await SlotAvailability.findOneAndUpdate(
+      {
+        ...slotKey,
+        count: { $lt: 2 } // only increment if less than 2
+      },
+      { $inc: { count: 1 } },
+      {
+        new: true,
+        upsert: true,
+        session
+      }
+    );
 
-    if (existingBookings >= 2) {
+    if (!updatedSlot) {
       await session.abortTransaction();
       session.endSession();
-      return res.status(409).json({ message: 'This slot is fully booked. Please choose another time.' });
+      return res.status(409).json({ message: 'Slot fully booked' });
     }
 
     const booking = new Booking({ place, slot, date, email, phone, fullName, cost, overs, status });
