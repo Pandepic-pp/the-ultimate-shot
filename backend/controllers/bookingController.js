@@ -8,7 +8,7 @@ exports.createBooking = async (req, res) => {
   try {
     const { place, slot, date, email, phone, fullName, cost, overs, status } = req.body;
 
-    const existingBookings = await Booking.countDocuments({ place, slot, date }).session(session);
+    const existingBookings = await Booking.countDocuments({ place, slot, date, overs }).session(session);
 
     if (existingBookings >= 2) {
       await session.abortTransaction();
